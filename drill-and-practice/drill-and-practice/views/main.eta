@@ -1,0 +1,21 @@
+<% layout("./layouts/layout.eta") %>
+<h1>Drill & Practice</h1>
+
+<p>This is an application providing a list of topics
+and allows creating multiple-choice questions into
+those topics that are then answered by self and others.
+The application also shows basic statistics: the total
+number of available questions and the total number of
+question answers. In addition, the application also
+provides an API for retrieving and answering random
+questions.</p>
+
+<p>If you haven't used the application before, 
+you can start by <a href="/auth/register">registering</a>. If you have been here before, just <a href="/auth/login">log in!</a></p>
+
+<h2>Total number of</h2>
+<ul>
+  <li>Topics: <%= it.topics %></li>
+  <li>Questions: <%= it.questions %></li>
+  <li>Answers: <%= it.answers %></li>
+</ul>

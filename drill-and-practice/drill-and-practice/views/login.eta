@@ -1,0 +1,18 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Login</h1>
+
+<form method="POST" action="/auth/login">
+  Email:<br/>
+  <input type="email" name="email" value="<%= it.originEmail ? it.originEmail : "" %>" /><br/>
+  Password:<br/>
+  <input type="password" name="password" /><br/>
+  <input type="submit" value="Login" />
+</form>
+
+<% if(it.error){ %>
+  <b>! <%= it.error %></b>
+  <br/>
+<% } %>
+
+<a href="/auth/register">Not yet registered? Register here.</a>

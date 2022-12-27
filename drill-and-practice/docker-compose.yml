@@ -1,0 +1,33 @@
+version: "3.4"
+
+services:
+  drill-and-practice:
+    build: drill-and-practice
+    image: drill-and-practice
+    restart: "no"
+    volumes:
+      - ./drill-and-practice/:/app
+    ports:
+      - 7777:7777
+    depends_on:
+      - database
+      - flyway
+    env_file:
+      - project.env
+
+  database:
+    container_name: database-p2-5f31bd29-7026-4af6-a49a-1f51a612da11
+    image: postgres:14.1
+    restart: "no"
+    env_file:
+        - project.env
+
+  flyway:
+    image: flyway/flyway:8.4.0-alpine
+    depends_on:
+      - database
+    volumes:
+      - .:/flyway/sql
+    command: -connectRetries=60 -baselineOnMigrate=true migrate
+    env_file:
+      - project.env

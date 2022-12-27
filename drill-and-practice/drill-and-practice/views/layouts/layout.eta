@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/papercss@1.8.2/dist/paper.min.css">
+  <title>Drill & Practice!</title>
+</head>
+<body>
+  <div class="paper container">
+    <nav class="border fixed split-nav">
+      <div class="nav-brand">
+        <h3>Hi there!</h3>
+      </div>
+      <div class="collapsible">
+        <div class="collapsible-body">
+          <ul class="inline">
+            <li><a href="/topics">Topics</a></li>
+            <li><a href="/quiz">Quiz</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <%~ it.body %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<% layout("./layouts/layout.eta") %>
+<h1>Topics</h1>
+
+<% if (it.validationErrors) { %>
+<h2>Add a Topic</h2>
+<ul>
+    <% Object.keys(it.validationErrors).forEach((attribute) => { %>
+        <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
+            <li><%= err %></li>
+        <% }); %>
+    <% }); %>
+</ul>
+<% } %>
+
+<% if (it.isAdmin) { %>
+<form method="POST" action="/topics">
+Name:<br/>
+<input type="text" name="name" value="<%= it.name ? it.name : "" %>"/><br/>
+<input type="submit" value="Add"/>
+</form>
+<% } %>
+
+<h2>All Available Topics</h2>
+
+<% if (it.allTopics && it.allTopics.length > 0) { %>
+<ul>
+<% it.allTopics.forEach(item => { %>
+  <p>
+    <li>
+      <a href="/topics/<%= item.id %>"><%= item.name %></a>
+      <% if (it.isAdmin) { %>
+        <form action="/topics/<%= item.id %>/delete" method="POST">
+        <input type="submit" value="Delete" />
+      <% } %>
+    </li>
+  </p>
+<% }); %>
+</ul>
+<% } else { %>
+<p>No Current Topics</p>
+<% } %>
